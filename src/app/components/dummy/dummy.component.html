@@ -7,16 +7,24 @@
       <th>Title</th>
     </tr>
 
-    @for (item of data; track item.id) {
     <tr>
       <td>
-        {{ item.id }}
+        {{ data[currentIndex].id }}
       </td>
       <td>
-        <p>{{ item.title }}</p>
+        <p>{{ data[currentIndex].title }}</p>
       </td>
     </tr>
-    }
   </table>
+  <br />
+
   }
+</div>
+<div class="text-center p-4 m-4">
+  <button class="border border-black m-4 p-2" (click)="previousButtonClick()">
+    Previous
+  </button>
+  <button class="border border-black p-2" (click)="nextButtonClick()">
+    Next
+  </button>
 </div>

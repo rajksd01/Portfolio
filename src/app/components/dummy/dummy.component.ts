@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DummyService } from '../service/dummy.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dummy',
@@ -9,8 +10,13 @@ import { DummyService } from '../service/dummy.service';
   styleUrl: './dummy.component.css',
 })
 export class DummyComponent implements OnInit {
+  constructor(private router: Router) {}
   public dummyService = inject(DummyService);
   public data: any;
+
+  public currentIndex = 0;
+  public lastIndex = 0;
+
   ngOnInit(): void {
     this.loadData();
   }
@@ -25,5 +31,17 @@ export class DummyComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+  previousButtonClick() {
+    if (this.lastIndex > 0) {
+      this.lastIndex--;
+      this.currentIndex--;
+    }
+  }
+  nextButtonClick(): void {
+    if (this.currentIndex < this.data.length) {
+      this.currentIndex++;
+      this.lastIndex++;
+    }
   }
 }

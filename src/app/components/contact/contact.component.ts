@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Contact } from '../interfaces/contact-interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,8 @@ import { Contact } from '../interfaces/contact-interface';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
+  constructor(private router: Router) {}
+
   public contact: Contact = {
     firstName: '',
     lastName: '',
@@ -24,5 +27,6 @@ export class ContactComponent {
   };
   handleFormSubmit(): void {
     this.contact = this.data;
+    this.router.navigate(['/']);
   }
 }

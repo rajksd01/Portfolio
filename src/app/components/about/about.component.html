@@ -1,1 +1,13 @@
 <p>about works!</p>
+
+<p>Contact Data</p>
+<input
+  type="text"
+  [value]="contactData"
+  (keyup)="onKeyUp(contact.value)"
+  #contact
+/>
+
+{{ contactData }}
+
+{{ today_date | date : "hh : mm: ss" }}
