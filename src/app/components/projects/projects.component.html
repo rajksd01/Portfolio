@@ -1,1 +1,26 @@
 <p>projects works!</p>
+
+<!-- <input type="text" name="head" value={{data }} />
+ -->
+
+<label for="head"> Interpolation</label><br />
+<input type="text" name="head" [value]="data" disabled="{{ disableValue }}" />
+<br />
+<label for="head"> Property Binding</label><br />
+<input type="text" name="header" value="{{ data }}" [disabled]="disableValue" />
+
+<div class="flex">
+  <div>
+    <p>Property Binding</p>
+    <img
+      [src]="imagePath"
+      [height]="imageHeight"
+      [attr.width]="imageWidth"
+    
+    />
+  </div>
+  <div>
+    <p>Attribute Binding</p>
+    <!-- <img [src]="imagePath" [attr.height]="imageHeight" [attr.width]="imageWidth" /> -->
+  </div>
+</div>
